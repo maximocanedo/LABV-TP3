@@ -2,19 +2,41 @@ package frgp.utn.edu.ar.entidad;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.*;
 
-
+@Entity
+@Table(name="doctors")
 public class Doctor implements Serializable {
 	
 	private static final long serialVersionUID = 135L;
+	
+	@Id
+	@Column
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int file;
+	
+	@Column
 	private String name;
+	
+	@Column
 	private String surname;
+	
+	@Column
 	private char sex;
+	
+	@Column
 	private Date birth;
+	
+	@Column
 	private String address;
+	
+	@Column
 	private String locality;
+	
+	@Column
 	private String email;
+	
+	@Column
 	private String phone;
 	
 	public Doctor() {
