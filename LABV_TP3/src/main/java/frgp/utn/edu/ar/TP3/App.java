@@ -28,6 +28,17 @@ public class App
     	doctor.setEmail("ricardoguzman@gmail.com");
     	doctor.setPhone("+5491168457523");
     	daoDoctor.Add(doctor);
+    	
+    	Doctor x = daoDoctor.getDoctorByFile(1);
+    	if(x != null) {
+    		System.out.println(x);
+    	}
+    	
+    	daoDoctor.deleteByFile(1);
+    	
+    	
+    	
+    	
     }
     
     public static Date getDateOf(int year, int month, int day, int hours, int minutes) {

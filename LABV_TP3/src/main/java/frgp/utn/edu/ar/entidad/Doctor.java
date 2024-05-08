@@ -114,6 +114,12 @@ public class Doctor implements Serializable {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
+
+	@Override
+	public String toString() {
+		return "Doctor [file=" + file + ", name=" + name + ", surname=" + surname + ", sex=" + sex + ", birth=" + birth
+				+ ", address=" + address + ", locality=" + locality + ", email=" + email + ", phone=" + phone + "]";
+	}
 	
 	
 	
