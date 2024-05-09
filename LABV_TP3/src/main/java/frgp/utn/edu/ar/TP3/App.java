@@ -32,9 +32,15 @@ public class App
     	Doctor x = daoDoctor.getDoctorByFile(1);
     	if(x != null) {
     		System.out.println(x);
+    		x.setName("Aurelio");
+    		//daoDoctor.Update(x);
+    		
     	}
     	
-    	daoDoctor.deleteByFile(1);
+    	Doctor y = daoDoctor.getDoctorByFile(1);
+    	if(y != null) {
+    		System.out.println(y);
+    	}
     	
     	
     	
@@ -50,19 +56,6 @@ public class App
 					.toInstant()
 				);
 	}
-    /// Modifica por id de medico
-    public static bool ModifyByID(int id, Doctor doctor) {
-    	DaoDoctor daoDoctor = new DaoDoctor();
-    	Doctor IDdoctor = daoDoctor.ReadOne(id);
-    	if(doctor != null) {
-    		doctor.setFile(IDdoctor.getFile());
-    		daoDoctor.Update(doctor);
-    		return true;
-    	}
-    	else {
-    		return false ;
-    	}
-    }
     
 }
 
