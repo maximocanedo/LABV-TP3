@@ -69,4 +69,42 @@ public class DaoDoctor {
         e.printStackTrace();
         System.out.println("Error: "+e.getMessage());
     }
+    
+  ///modificar por ID
+  /// Buscar doctor por ID 
+  public Doctor ReadOne(int id) {
+  	Session session = null;
+  	try {
+          session = getSession();
+          Transaction transaction = session.beginTransaction();
+          Doctor doctor = (Doctor)session.get(Doctor.class, id);
+          transaction.commit();
+          return doctor;
+      } catch (Exception e) {
+          handleException(e);
+  	} finally {
+      if (session != null) {
+      	session.close();
+      }
+  	}
+  	return null;
+  }
+  /// Modifcar doctor     
+  public void Update(Doctor doctor)
+  {
+  	Session session = null;
+  	try {
+          session = getSession();
+          Transaction transaction = session.beginTransaction();
+          session.update(doctor);
+          transaction.commit();
+      } catch (Exception e) {
+          handleException(e);
+      } finally {
+          if (session != null) {
+              session.close();
+          }
+      } 
+  }
+   
 }

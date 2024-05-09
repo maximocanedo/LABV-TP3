@@ -50,4 +50,20 @@ public class App
 					.toInstant()
 				);
 	}
+    /// Modifica por id de medico
+    public static bool ModifyByID(int id, Doctor doctor) {
+    	DaoDoctor daoDoctor = new DaoDoctor();
+    	Doctor IDdoctor = daoDoctor.ReadOne(id);
+    	if(doctor != null) {
+    		doctor.setFile(IDdoctor.getFile());
+    		daoDoctor.Update(doctor);
+    		return true;
+    	}
+    	else {
+    		return false ;
+    	}
+    }
+    
 }
+
+
