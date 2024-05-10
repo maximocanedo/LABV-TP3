@@ -145,10 +145,10 @@ public class App
     public static void main( String[] args )
     {
     	System.out.println("Agregando registros...");
-    	addDoctors();
+    	// addDoctors();
     	System.out.println("Agregados los diez registros de médicos. ");
         DaoDoctor daoDoctor = new DaoDoctor(); 
-    	List<Doctor> eee = daoDoctor.list();
+    	List<Doctor> eee = daoDoctor.list(1, 3);
     	for(Doctor e : eee) {
     		System.out.println(e);
     	}

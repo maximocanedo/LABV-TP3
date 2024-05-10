@@ -1,5 +1,6 @@
 package utn.frgp.tp3.dao;
 
+import java.awt.print.Pageable;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -81,6 +82,28 @@ public class DaoDoctor {
             session = getSession();
             Transaction transaction = session.beginTransaction();
             Query q = session.createQuery("FROM Doctor");
+            doctors = q.list();
+            transaction.commit();
+        } catch (Exception e) {
+            handleException(e);
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+        return doctors;
+    }
+    
+    @SuppressWarnings("unchecked")
+	public List<Doctor> list(int page, int size) {
+    	Session session = null;
+        List<Doctor> doctors = null;
+        try {
+            session = getSession();
+            Transaction transaction = session.beginTransaction();
+            Query q = session.createQuery("FROM Doctor");
+            q.setFirstResult((page - 1) * size);
+            q.setMaxResults(size);
             doctors = q.list();
             transaction.commit();
         } catch (Exception e) {
