@@ -73,6 +73,25 @@ public class DaoDoctor {
         e.printStackTrace();
         System.out.println("Error: "+e.getMessage());
     }
+    @SuppressWarnings("unchecked")
+	public List<Doctor> list() {
+    	Session session = null;
+        List<Doctor> doctors = null;
+        try {
+            session = getSession();
+            Transaction transaction = session.beginTransaction();
+            Query q = session.createQuery("FROM Doctor");
+            doctors = q.list();
+            transaction.commit();
+        } catch (Exception e) {
+            handleException(e);
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+        return doctors;
+    }
     
   /* //modificar por ID
   /// Buscar doctor por ID 

@@ -19,6 +19,11 @@ public class App
 	
     public static void main( String[] args )
     {
+        DaoDoctor daoDoctor = new DaoDoctor(); 
+    	List<Doctor> eee = daoDoctor.list();
+    	for(Doctor e : eee) {
+    		System.out.println(e);
+    	}
     }
     
     
