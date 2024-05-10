@@ -1,11 +1,12 @@
-package frgp.utn.edu.ar.entidad;
+package utn.frgp.tp3.entidad;
+
 
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
 
 @Entity
-@Table(name="doctors")
+@Table(name="medicos")
 public class Doctor implements Serializable {
 	
 	private static final long serialVersionUID = 135L;

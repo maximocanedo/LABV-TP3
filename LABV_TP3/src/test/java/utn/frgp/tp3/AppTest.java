@@ -1,4 +1,4 @@
-package frgp.utn.edu.ar.TP3;
+package utn.frgp.tp3;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

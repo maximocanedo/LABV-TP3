@@ -1,8 +1,12 @@
-package frgp.utn.edu.ar.dao;
+package utn.frgp.tp3.dao;
 
-import org.hibernate.Session;
-import org.hibernate.Transaction;
-import frgp.utn.edu.ar.entidad.Doctor;
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+
+import org.hibernate.*;
+import utn.frgp.tp3.entidad.Doctor;
 
 public class DaoDoctor {
     public void Add(Doctor doctor) {
@@ -70,7 +74,7 @@ public class DaoDoctor {
         System.out.println("Error: "+e.getMessage());
     }
     
-  ///modificar por ID
+  /* //modificar por ID
   /// Buscar doctor por ID 
   public Doctor ReadOne(int id) {
   	Session session = null;
@@ -89,7 +93,7 @@ public class DaoDoctor {
   	}
   	return null;
   }
-  /// Modifcar doctor     
+*/   
   public void Update(Doctor doctor)
   {
   	Session session = null;
@@ -105,6 +109,6 @@ public class DaoDoctor {
               session.close();
           }
       } 
-  }
+  } // */
    
 }

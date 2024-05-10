@@ -1,4 +1,4 @@
-package frgp.utn.edu.ar.dao;
+package utn.frgp.tp3.dao;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
