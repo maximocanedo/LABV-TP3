@@ -126,6 +126,13 @@ public class TestingRecordGenerator {
 		}
 		e_name = e_name.toLowerCase();
 		String div = "";
+		
+		int r3 = random.nextInt(100);
+		if(r3 % 6 == 0) div = "+";
+		else if(r3%5==0)div = "-";
+		else if(r3%2==0)div = "_";
+		else div = "";
+		
 		String e_surname = surname;
 		if(surname.length() > 5) {
 			int end = random.nextInt(surname.length() - 5) + 5;
@@ -152,7 +159,7 @@ public class TestingRecordGenerator {
 		} else if(s % 3 == 0) {
 			email = e_surname + div + e_name + post;
 		} else if(s % 2 == 0) {
-			email = e_name + div + e_surname + div + post;
+			email = e_name + div + e_surname + (post == "" ? "" : div + post);
 		} else {
 			email = e_name + div + e_surname;
 		}
