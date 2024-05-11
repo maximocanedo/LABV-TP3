@@ -71,9 +71,9 @@ public class App
     		System.out.println("ERR. No se pudo borrar el registro. ");
     	}
     	
-    	List<Doctor> eee = daoDoctor.list();
-    	for(Doctor e : eee) {
-    		System.out.println(e);
+    	List<Doctor> doctors = daoDoctor.list();
+    	for(Doctor medico : doctors) {
+    		System.out.println(medico);
     	}
     }
     
