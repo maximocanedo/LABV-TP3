@@ -1,10 +1,6 @@
 package utn.frgp.tp3.dao;
 
-import java.awt.print.Pageable;
 import java.util.List;
-
-import javax.persistence.EntityManager;
-import javax.persistence.TypedQuery;
 
 import org.hibernate.*;
 import utn.frgp.tp3.entidad.Doctor;
@@ -116,26 +112,7 @@ public class DaoDoctor {
         return doctors;
     }
     
-  /* //modificar por ID
-  /// Buscar doctor por ID 
-  public Doctor ReadOne(int id) {
-  	Session session = null;
-  	try {
-          session = getSession();
-          Transaction transaction = session.beginTransaction();
-          Doctor doctor = (Doctor)session.get(Doctor.class, id);
-          transaction.commit();
-          return doctor;
-      } catch (Exception e) {
-          handleException(e);
-  	} finally {
-      if (session != null) {
-      	session.close();
-      }
-  	}
-  	return null;
-  }
-*/   
+
   public void Update(Doctor doctor)
   {
   	Session session = null;

@@ -3,7 +3,6 @@ package utn.frgp.tp3;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.ZoneId;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.Random;
 
@@ -116,6 +115,7 @@ public class TestingRecordGenerator {
 		return getDateOf(year, month, day, 0, 0);
 	}
 	
+	@SuppressWarnings("deprecation")
 	public String generateEmail(String name, String surname, Date birth) {
 		Random random = new Random();
 		String e_name = "";
@@ -212,7 +212,6 @@ public class TestingRecordGenerator {
 		return d;
 	}
 	public static void main(String[] args) {
-		TestingRecordGenerator trg = new TestingRecordGenerator();
 		for(int i = 0; i < 15; i++) {
 			Doctor d = generateRecord();
 			System.out.println(d);

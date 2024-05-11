@@ -123,10 +123,6 @@ public class Doctor implements Serializable {
 
 	@Override
 	public String toString() {
-		
-		String e =  "Doctor [file=" + file + ", name=" + name + ", surname=" + surname + ", sex=" + sex + ", birth=" + birth
-				+ ", address=" + address + ", locality=" + locality + ", email=" + email + ", phone=" + phone + "]";
-		
 		DateFormat df = DateFormat.getDateTimeInstance(DateFormat.DEFAULT, DateFormat.SHORT);
 		IFormattedLine header = new FormattedLine("LEGAJO N.º " + file);
 		header.setLineSize(48);
