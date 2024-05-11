@@ -2,8 +2,13 @@ package utn.frgp.tp3.entidad;
 
 
 import java.io.Serializable;
+import java.text.DateFormat;
 import java.util.Date;
 import javax.persistence.*;
+
+import utils.FormattedLine;
+import utils.FormattedLine.Alignment;
+import utils.IFormattedLine;
 
 @Entity
 @Table(name="medicos")
@@ -118,8 +123,42 @@ public class Doctor implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Doctor [file=" + file + ", name=" + name + ", surname=" + surname + ", sex=" + sex + ", birth=" + birth
+		
+		String e =  "Doctor [file=" + file + ", name=" + name + ", surname=" + surname + ", sex=" + sex + ", birth=" + birth
 				+ ", address=" + address + ", locality=" + locality + ", email=" + email + ", phone=" + phone + "]";
+		
+		DateFormat df = DateFormat.getDateTimeInstance(DateFormat.DEFAULT, DateFormat.SHORT);
+		IFormattedLine header = new FormattedLine("LEGAJO N.º " + file);
+		header.setLineSize(48);
+		header.setTopHeader(true);
+		String cont = "";
+		String[] lines = new String[] {
+			surname + ", " + name,
+			"Sexo: " + sex,
+			"Fecha de nacimiento: " + df.format(birth),
+			"Dirección: " + address, 
+			"Localidad: " + locality
+		};
+		for(String line: lines) {
+			cont += line + "\n";
+		}
+		IFormattedLine content = new FormattedLine(cont);
+		content.setLineSize(48);
+		IFormattedLine contact = new FormattedLine(email + "\n" + phone);
+		contact.setAlignment(Alignment.RIGHT);
+		contact.setLineSize(48);
+		
+		IFormattedLine end = new FormattedLine("···");
+		end.setAlignment(FormattedLine.Alignment.CENTER);
+		end.setTopHeader(true);
+		end.setHeaderMiddleDelimiters('—');
+		end.setLineSize(48);
+		
+		String tot = header.toString() + content.toString() + contact.toString();
+		
+		return tot + end.toString() + "\n";
+		
+		
 	}
 	
 	
