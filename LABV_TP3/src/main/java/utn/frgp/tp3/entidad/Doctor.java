@@ -153,8 +153,6 @@ public class Doctor implements Serializable {
 		String tot = header.toString() + content.toString() + contact.toString();
 		
 		return tot + end.toString() + "\n";
-		
-		
 	}
 	
 	
